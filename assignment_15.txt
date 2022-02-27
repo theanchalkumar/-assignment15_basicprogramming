@@ -1,0 +1,88 @@
+1.
+
+def NumGenerator(n):
+    for i in range(n+1):
+        if i%5==0 and i%7==0:
+            yield i
+
+n=int(raw_input())
+values = []
+for i in NumGenerator(n):
+    values.append(str(i))
+
+print ",".join(values)
+
+
+def generate(n):
+    for i in range(n+1):
+        if i % 35 == 0:    # 5*7 = 35, if a number is divisible by a & b then it is also divisible by a*b
+            yield i
+
+n = int(input())
+resp = [str(i) for i in generate(n)]
+print(",".join(resp))
+
+2.
+
+ef EvenGenerator(n):
+    i=0
+    while i<=n:
+        if i%2==0:
+            yield i
+        i+=1
+
+
+n=int(raw_input())
+values = []
+for i in EvenGenerator(n):
+    values.append(str(i))
+
+print ",".join(values)
+OR
+
+# Solution by: StartZer0
+n = int(input())
+
+for i in range(0, n+1, 2):
+  if i < n - 1:
+    print(i, end = ',' )
+  else:
+    print(i)
+
+3.
+
+4.
+
+import re
+emailAddress = raw_input()
+pat2 = "(\w+)@(\w+)\.(com)"
+r2 = re.match(pat2,emailAddress)
+print r2.group(2)
+My Solution: Python 3
+
+import re
+
+email = "john@google.com elise@python.com"
+pattern = "\w+@(\w+).com"
+ans = re.findall(pattern,email)
+print(ans)
+
+5.
+
+class Shape(object):
+    def __init__(self):
+        pass
+
+    def area(self):
+        return 0
+
+class Square(Shape):
+    def __init__(self, l):
+        Shape.__init__(self)
+        self.length = l
+
+    def area(self):
+        return self.length*self.length
+
+aSquare= Square(3)
+print aSquare.area()
